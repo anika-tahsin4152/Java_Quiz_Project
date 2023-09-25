@@ -50,6 +50,4 @@ gradlew
 gradlew.bat
 qodana.yaml
 settings.gradle
-quiz.json
-results.json
-users.json
+
