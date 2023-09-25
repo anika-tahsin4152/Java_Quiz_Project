@@ -10,7 +10,7 @@
 ### 6. **Result Storage:** Quiz results for each student are saved in a JSON file ("results.json") with their usernames and scores.
 ### 7. **Data Persistence:** User data, quiz questions, and quiz results are stored in JSON files to ensure data persistence across program runs.
 ### 8. **Replay Quiz:** After completing a quiz, students have the option to start a new quiz or exit the system.
-### 9. **Menu Navigation:** Users can easily navigate through menus by entering specific choices (e.g., 's' to start or 'q' to quit).
+### 9. **Menu Navigation:** Users can easily navigate through menus by entering specific choices ('s' to start or 'q' to quit).
 #### Overall, this Java application provides a basic framework for managing quizzes, making it useful for educational purposes or quiz-based assessments. Users can create quizzes and students can take them, with results being stored and accessible for future reference.
 
 # How to run this project:
