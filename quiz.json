@@ -1,0 +1,90 @@
+[
+  {
+    "answerkey": 3,
+    "option 3": "To test individual components or units of code",
+    "option 4": "To test the software's performance under heavy load",
+    "question": "What is the primary purpose of unit testing?",
+    "option 1": "To test the entire software system",
+    "option 2": "To validate the software against user requirements"
+  },
+  {
+    "answerkey": 3,
+    "option 3": "User Acceptance Testing",
+    "option 4": "Regression Testing",
+    "question": "Which type of testing evaluates how well the software performs in real-world scenarios?",
+    "option 1": "Integration Testing",
+    "option 2": "System Testing"
+  },
+  {
+    "answerkey": 2,
+    "option 3": "To test software performance under stress conditions",
+    "option 4": "To automate repetitive testing tasks",
+    "question": "What is the purpose of exploratory testing?",
+    "option 1": "To follow a predefined set of test cases",
+    "option 2": "To uncover defects through ad-hoc testing and exploration"
+  },
+  {
+    "answerkey": 4,
+    "option 3": "System Testing",
+    "option 4": "Acceptance Testing",
+    "question": "Which testing phase assesses the software's compliance with business requirements?",
+    "option 1": "Alpha Testing",
+    "option 2": "Beta Testing"
+  },
+  {
+    "answerkey": 2,
+    "option 3": "Testing with a large volume of data",
+    "option 4": "Testing the software without any test cases",
+    "question": "What does the term 'smoke testing' refer to in software testing?",
+    "option 1": "Testing the software for performance issues",
+    "option 2": "Testing only the critical functionalities after each build"
+  },
+  {
+    "answerkey": 3,
+    "option 3": "Stress Testing",
+    "option 4": "Usability Testing",
+    "question": "Which type of testing checks how well the software handles unexpected inputs and conditions?",
+    "option 1": "Functional Testing",
+    "option 2": "Boundary Value Testing"
+  },
+  {
+    "answerkey": 3,
+    "option 3": "To assess the software's performance under varying levels of load",
+    "option 4": "To test individual code units",
+    "question": "What is the primary goal of load testing?",
+    "option 1": "To evaluate the software's usability",
+    "option 2": "To test the software with different operating systems"
+  },
+  {
+    "answerkey": 2,
+    "option 3": "Compatibility Testing",
+    "option 4": "Regression Testing",
+    "question": "Which type of testing is also known as 'penetration testing' and focuses on identifying security vulnerabilities?",
+    "option 1": "Usability Testing",
+    "option 2": "Security Testing"
+  },
+  {
+    "answerkey": 1,
+    "option 3": "User Acceptance Testing",
+    "option 4": "System Testing",
+    "question": "In which testing phase are defects reported and resolved before releasing the software to end-users?",
+    "option 1": "Alpha Testing",
+    "option 2": "Beta Testing"
+  },
+  {
+    "answerkey": 1,
+    "option 3": "To assess the software's security",
+    "option 4": "To test individual code units",
+    "question": "What is the primary objective of regression testing?",
+    "option 1": "To find defects in newly added features",
+    "option 2": "To validate the software against business requirements"
+  },
+  {
+    "answerkey": 1,
+    "option 3": "amina",
+    "option 4": "alif",4
+    "question": "what is your name?",
+    "option 1": "hridi",
+    "option 2": "ayesha"
+  }
+]
