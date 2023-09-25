@@ -1,7 +1,6 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,7 +15,7 @@ public class QuizSystem {
     private static final String USERS_FILE = "users.json";
     private static final String QUIZ_FILE = "quiz.json";
     private static final String RESULTS_FILE = "results.json";
-    private static final int NUM_QUESTIONS = 5;
+    private static final int NUM_QUESTIONS = 10;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -37,7 +36,7 @@ public class QuizSystem {
                 if ("admin".equals(role)) {
                     adminMenu(scanner, jsonParser);
                 } else if ("student".equals(role)) {
-                    studentMenu(scanner, jsonParser, username);
+                    studentMenu(scanner, jsonParser, username); // Pass username to studentMenu
                 }
             } else {
                 System.out.println("System:> Invalid credentials. Try again.");
@@ -66,14 +65,14 @@ public class QuizSystem {
                     return user;
                 }
             }
-        } catch (IOException | ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
     private static void adminMenu(Scanner scanner, JSONParser jsonParser) {
-        List<JSONObject> quizArray = loadQuizData(jsonParser);
+        JSONArray quizArray = loadQuizData(jsonParser);
         int questionCounter = 1;
 
         while (true) {
@@ -110,29 +109,29 @@ public class QuizSystem {
         }
     }
 
-    private static List<JSONObject> loadQuizData(JSONParser jsonParser) {
+    private static JSONArray loadQuizData(JSONParser jsonParser) {
         try {
-            List<JSONObject> quizArray = (List<JSONObject>) jsonParser.parse(new FileReader("./src/main/resources/quiz.json"));
+            JSONArray quizArray = (JSONArray) jsonParser.parse(new FileReader("./src/main/resources/quiz.json"));
             if (quizArray == null) {
-                quizArray = new ArrayList<>();
+                quizArray = new JSONArray();
             }
             return quizArray;
-        } catch (IOException | ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ArrayList<>();
+            return new JSONArray();
         }
     }
 
-    private static void saveQuizData(List<JSONObject> quizArray) {
+    private static void saveQuizData(JSONArray quizArray) {
         try (FileWriter fileWriter = new FileWriter("./src/main/resources/quiz.json")) {
-            fileWriter.write(JSONArray.toJSONString(quizArray));
+            fileWriter.write(quizArray.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private static void studentMenu(Scanner scanner, JSONParser jsonParser, String username) {
-        List<JSONObject> quizArray = loadQuizData(jsonParser);
+        JSONArray quizArray = loadQuizData(jsonParser);
         List<Integer> usedIndices = new ArrayList<>();
         int score = 0;
 
@@ -146,7 +145,7 @@ public class QuizSystem {
                     randomIndex = new Random().nextInt(quizArray.size());
                 } while (usedIndices.contains(randomIndex));
 
-                JSONObject quizQuestion = quizArray.get(randomIndex);
+                JSONObject quizQuestion = (JSONObject) quizArray.get(randomIndex);
                 usedIndices.add(randomIndex);
 
                 String question = (String) quizQuestion.get("question");
@@ -177,15 +176,29 @@ public class QuizSystem {
                 }
             }
 
-            if (score == 0) {
-                System.out.println("কিরে ! 🤨\n ০ পাইলি কেমনে পড়ালেখা করোস নাই কিছ ? ?? Press 's' for start or 'q' for quit। \n(Oops! You scored 0. Better luck next time.)");
-
-
+            // Determine and display the appropriate message based on the score
+            String message;
+            if (score >= 8) {
+                message = "Excellent!";
+            } else if (score >= 5) {
+                message = "Good.";
+            } else if (score >= 2) {
+                message = "Very poor!";
             } else {
-                System.out.println("Your Score: " + score + " out of " + NUM_QUESTIONS);
+                message = "Very sorry you are failed.";
             }
 
+            System.out.println(message + " You have got " + score + " out of 10");
+
             System.out.println("Would you like to start again? Press 's' for start or 'q' for quit");
+            choice = scanner.nextLine().trim();
+            if ("s".equalsIgnoreCase(choice)) {
+                // Start the quiz again.
+                studentMenu(scanner, jsonParser, username);
+            } else if ("q".equalsIgnoreCase(choice)) {
+                // Quit the quiz.
+                System.out.println("Goodbye!");
+            }
 
             // Save the quiz result to results.json for all students
             saveQuizResult(username, score);
@@ -203,18 +216,23 @@ public class QuizSystem {
             resultsArray.add(resultEntry);
 
             try (FileWriter fileWriter = new FileWriter("./src/main/resources/results.json")) {
-                fileWriter.write(JSONArray.toJSONString(resultsArray));
+                fileWriter.write(resultsArray.toJSONString());
             }
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static JSONArray loadResultsData() throws IOException, ParseException {
-        JSONArray resultsArray = (JSONArray) RESULTS_FILE.chars();
-        if (resultsArray == null) {
-            resultsArray = new JSONArray();
+    private static JSONArray loadResultsData() {
+        try {
+            JSONArray resultsArray = (JSONArray) new JSONParser().parse(new FileReader("./src/main/resources/results.json"));
+            if (resultsArray == null) {
+                resultsArray = new JSONArray();
+            }
+            return resultsArray;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new JSONArray();
         }
-        return resultsArray;
     }
 }
