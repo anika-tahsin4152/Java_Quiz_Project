@@ -13,5 +13,19 @@
 ### 9. **Menu Navigation:** Users can easily navigate through menus by entering specific choices (e.g., 's' to start or 'q' to quit).
 #### Overall, this Java application provides a basic framework for managing quizzes, making it useful for educational purposes or quiz-based assessments. Users can create quizzes and students can take them, with results being stored and accessible for future reference.
 
+# How to run this project:
+-Clone the project 
+--need dependencies, copy from here:- 
+
+// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+--paste it on build.gradle  (![image](https://github.com/anika-tahsin4152/Java_Quiz_Project/assets/73738319/a4bbd30b-3888-4800-b36b-2f362e05e488)
+
+
+# Necessary Tools:
+-Java IDE (Intellij Suggested)
+-java development kit (version 11 suggested)
+
 # Video Demonstration:
 -https://drive.google.com/file/d/1n-CoY8GSanpFnTwaugX-RFQG4z3upSYZ/view?usp=sharing
