@@ -1,6 +1,6 @@
 # Java_Quiz_Project
 # About the Project 
-# The project titled "QuizSystem" is a Java-based application that provides a simple quiz management system. It allows users to log in as either administrators or students to perform various tasks related to quizzes. Here's an overview of its key features:
+# The project "QuizSystem" is a Java-based application that provides a simple quiz management system. It allows users to log in as either administrators or students to perform various tasks related to quizzes. Here's an overview of its key features:
 
 ### 1. **User Authentication:** Users are required to provide a username and password for authentication. The system validates these credentials against user data stored in a JSON file.
 ### 2. **Role-Based Access:** The system supports two user roles: "admin" and "student." Administrators have privileges to create and manage quiz questions, while students can take quizzes.
